@@ -1,0 +1,8 @@
+$ab-wg-sans-serif: Helvetica, Arial, sans-serif !default;
+$ab-wg-serif: 'Times New Roman', times, serif !default;
+$ab-wg-monospace: courier, monospace !default;
+
+@use "wg/button";
+@use "wg/table";
+@use "wg/dropdown";
+@use "wg/details";

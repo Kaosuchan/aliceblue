@@ -1,0 +1,175 @@
+/** reference */
+
+@use 'sass:list';
+@use 'sass:math';
+
+$ab-atc-blocks:
+    blockquote,
+    canvas,
+    dd, div, dl, dt,
+    figcaption, figure,
+    h1, h2, h3, h4, h5, h6, hr,
+    iframe, img,
+    li,
+    map,
+    menu,
+    object, ol,
+    p, picture, portal, pre,
+    ul,
+    video,
+    !default;
+
+$ab-atc-block-content: p, li, dt, dd, figcaption, tr, th, !default;
+$ab-atc-block-pre-content: 'pre > code', !default;
+$ab-atc-block-header: h1, h2, h3, h4, h5, h6, !default;
+$ab-atc-block-display: canvas, div, pre, embed, iframe, object, portal, svg, math, table !default;
+$ab-atc-block-list: ol, ul, !default;
+// deprecated
+// $ab-atc-block-display: img, figure;
+$ab-atc-block-figure: picture, figure !default;
+$ab-atc-block-quote: blockquote !default;
+$ab-atc-block-transition-time: 0.5s !default;
+
+$ab-atc-block-sans-serif: Helvetica, Arial, sans-serif !default;
+$ab-atc-block-serif: 'Times New Roman', times, serif !default;
+$ab-atc-block-monospace: courier, monospace !default;
+$ab-atc-font-size-on-big-screen: 1em;
+
+$ab-atc-block-display-max-width-on-big-screen: 900px;
+
+$ab-atc-block-enable-default-rendering : false;
+
+$header: $ab-atc-block-header;
+
+$content: '.ab-atc-content';
+$pre-content: '.ab-atc-pre-content';
+$display: '.ab-atc-display';
+$figure: '.ab-atc-figure';
+$list: '.ab-atc-list';
+$quote: '.ab-atc-quote';
+
+@if $ab-atc-block-enable-default-rendering {
+    $content: list.append($ab-atc-block-content, $content);
+    $pre-content: list.append($ab-atc-block-pre-content, $pre-content);
+    $display: list.append($ab-atc-block-display, $display);
+    $figure: list.append($ab-atc-block-figure, $figure);
+    $list: list.append($ab-atc-block-list, $list);
+    $quote: list.append($ab-atc-block-quote, $quote);
+}
+
+.ab-atc {
+    #{$ab-atc-blocks} {
+        margin: 0.5em 0 1em 0;
+    }
+
+    font-size: min($ab-atc-font-size-on-big-screen, 5vw);
+
+    #{$content} {
+        letter-spacing: .2px;
+        line-height: 1.75em;
+        font-size: 1em;
+        font-family: $ab-atc-block-sans-serif;
+    }
+
+    #{$pre-content} {
+        font-size: 0.9em;
+        line-height: 1em;
+        font-family: $ab-atc-block-monospace;
+        overflow-x: scroll;
+    }
+
+    #{$display} {
+        overflow: scroll;
+        display: block;
+        box-sizing: border-box;
+        // width: min($ab-atc-block-display-max-width-on-big-screen, 100% - 6em);
+        // margin: 3em max(3em, 50% - #{$ab-atc-block-display-max-width-on-big-screen * 0.5});
+        max-width: min($ab-atc-block-display-max-width-on-big-screen, 100% - 6em);
+        margin: 3em auto;
+    }
+
+    table.ab-atc-display {
+        display: table;
+    }
+
+    img {
+        transition: $ab-atc-block-transition-time;
+        border-radius: 1em;
+        box-shadow: 0 0 0;
+        &:hover {
+            border-radius: 0;
+        }
+    }
+
+    #{$figure} {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        width: 100%;
+        justify-content: center;
+        font-size: 0.9em;
+        
+
+        margin: 3em 0;
+        padding: 0 2em;
+
+        > * {
+            margin: 0.2em 0;
+            flex: 0 0;
+            max-width: min(100%, $ab-atc-block-display-max-width-on-big-screen);
+            align-self: center;
+            justify-self: center;
+        }
+
+        &:hover {
+            > img {
+                border-radius: 0;
+            }
+        }
+    }
+
+    $basic-size: 2.75;
+    $r: 0.875;
+
+    @for $i from 1 through list.length($header) {
+        $h: list.nth($header, $i);
+
+        #{$h} {
+            font-size: $basic-size * 1em;
+            margin: math.div(1em, $basic-size) 0;
+        }
+        $basic-size: $basic-size * $r;
+    }
+
+    #{$header} {
+        font-family: $ab-atc-block-serif;
+    }
+
+    #{$list} {
+        > li { margin: 0.5em 0; }
+        list-style-position: inside;
+        padding-left: 1em;
+    }
+
+    #{$quote} {
+        margin: 3em 0;
+        padding: 0.7em 1em;
+        width: 100%;
+        height: auto;
+        height: max-content;
+        box-sizing: border-box;
+        border: none;
+        border-left: solid 0.3em black;
+        *:last-child {
+            margin-bottom: 0.5em;
+        }
+    }
+}
+
+.ab-atc {
+    dl {
+        dd {
+            padding-left: 2em;
+        }
+    }
+}

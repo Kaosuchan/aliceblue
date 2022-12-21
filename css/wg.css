@@ -1,0 +1,111 @@
+/** reference */
+.ab-wg-button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 1.5em;
+  box-sizing: border-box;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 0.4em;
+  margin: 0.2em 0.2em;
+  font-weight: bolder;
+  border-radius: 0.3em;
+  border-style: solid;
+  border-width: 0.1em 0.1em 0.1em 0.1em;
+  box-shadow: 0 0.1em 0;
+}
+.ab-wg-button:active {
+  top: 0.1em;
+  left: 0;
+  box-shadow: 0 0 0;
+}
+
+button.ab-wg-button {
+  background: inherit;
+  border-color: inherit;
+}
+
+/** reference */
+.ab-wg-table, table {
+  display: table;
+  border-collapse: collapse;
+  border: 2px solid;
+  overflow: scroll;
+  table-layout: fixed;
+}
+.ab-wg-table th, .ab-wg-table td, table th, table td {
+  border: 1px solid;
+  padding: 0.3em 1em;
+}
+.ab-wg-table th:nth-child(odd), .ab-wg-table td:nth-child(odd), table th:nth-child(odd), table td:nth-child(odd) {
+  background-color: white;
+}
+.ab-wg-table th:nth-child(even), .ab-wg-table td:nth-child(even), table th:nth-child(even), table td:nth-child(even) {
+  background-color: silver;
+}
+.ab-wg-table th, table th {
+  font-weight: bold;
+  text-align: center;
+}
+.ab-wg-table caption, table caption {
+  font-size: 2em;
+  font-style: bold;
+  margin: 0.5em;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.ab-wg-dropdown {
+  color: rgb(237, 244, 255);
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  font-weight: bold;
+  vertical-align: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+.ab-wg-dropdown div {
+  margin: 0;
+}
+.ab-wg-dropdown > .title, .ab-wg-dropdown > .dropdown {
+  box-sizing: border-box;
+  padding: 0.6em 0.8em;
+}
+.ab-wg-dropdown > .dropdown {
+  float: left;
+  clear: both;
+  width: 100%;
+  background-color: rgb(75, 75, 75);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.ab-wg-dropdown > .dropdown:active {
+  background-color: rgb(169, 169, 169);
+}
+.ab-wg-dropdown > .title {
+  background-color: rgb(6, 6, 6);
+}
+.ab-wg-dropdown, .ab-wg-dropdown > .title, .ab-wg-dropdown > .dropdown.item {
+  height: 3em;
+}
+.ab-wg-dropdown:hover {
+  overflow: visible;
+}
+
+/** reference */
+details {
+  padding: 0.3em 0.5em;
+  background-color: rgb(220, 209, 209);
+}
+details summary {
+  font-weight: bold;
+}/*# sourceMappingURL=wg.css.map */

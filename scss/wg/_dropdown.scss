@@ -1,0 +1,44 @@
+$ab-wg-dropdown-color: rgb(237, 244, 255) !default;
+$ab-wg-dropdown-background-color: rgb(75, 75, 75) !default;
+$ab-wg-dropdown-background-active-color: rgb(169, 169, 169) !default;
+$ab-wg-dropdown-title-background-color: rgb(6, 6, 6) !default;
+
+.ab-wg-dropdown {
+    color: $ab-wg-dropdown-color;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: center;
+    max-width: 100%;
+    div {
+        margin: 0;
+    }
+    overflow: hidden;
+    > .title, > .dropdown {
+        box-sizing: border-box;
+        padding: .6em .8em;
+    }
+
+    > .dropdown {
+        float: left;
+        clear: both;
+        width: 100%;
+        background-color: $ab-wg-dropdown-background-color;
+        user-select: none;
+        &:active { background-color: $ab-wg-dropdown-background-active-color; }
+    }
+
+    > .title {
+        background-color: $ab-wg-dropdown-title-background-color;
+    }
+
+    &, > .title, > .dropdown.item {
+        height: 3em;
+    }
+
+    &:hover {
+        overflow: visible;
+    }
+}

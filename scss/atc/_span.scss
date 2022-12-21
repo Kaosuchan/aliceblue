@@ -1,0 +1,203 @@
+/** reference */
+
+@use 'sass:list';
+
+$ab-atc-span-content:
+    a, abbr,
+    b, bdi, bdo, // br,
+    cite,
+    data, del, dfn,
+    em,
+    i, ins,
+    mark,
+    q,
+    rp, rt, ruby,
+    s, small, span, strong, sub, sup,
+    time,
+    u,
+    var,
+    // wbr,
+    !default;
+
+$ab-atc-span-pre-content:
+    code,
+    samp,
+    !default;
+
+$ab-atc-span-bold: b, strong, 'em em', !default;
+$ab-atc-span-bolder: 'em em em', !default;
+$ab-atc-span-italic: i, dfn, em,!default;
+$ab-atc-span-strike-through: del, s, !default;
+$ab-atc-span-underline: ins, u, !default;
+$ab-atc-span-highlight: mark, !default;
+$ab-atc-span-cite: cite, dfn, !default;
+$ab-atc-span-small: small, !default;
+$ab-atc-span-large: () !default;
+$ab-atc-span-superscript: sup, !default;
+$ab-atc-span-subscript: sub, !default;
+
+$ab-atc-span-break: br, wbr, !default;
+
+$ab-atc-span-sans-serif: Helvetica, Arial, sans-serif !default;
+$ab-atc-span-serif: 'Times New Roman', times, serif !default;
+$ab-atc-span-monospace: courier, monospace !default;
+$ab-atc-span-enable-default-rendering: false !default;
+
+$ab-atc-span-highlight-background-color: rgb(241, 252, 30) !default;
+$ab-atc-span-anchor-link-color: rgb(38, 76, 227);
+$ab-atc-span-anchor-visited-color: rgb(132, 132, 132);
+$ab-atc-span-anchor-hover-color: rgb(246, 33, 44);
+$ab-atc-span-anchor-active-color: rgb(100, 47, 245);
+
+$content: '%content'; //'.ab-atc-content';
+$pre-content: '%pre-content'; // '.ab-atc-pre-content';
+$bold: '.ab-atc-bold';
+$bolder: '.ab-atc-bolder';
+$italic: '.ab-atc-italic';
+$strike-through: '.ab-atc-strike-through';
+$underline: '.ab-atc-underline';
+$highlight: '.ab-atc-highlight';
+$cite: '.ab-atc-cite';
+$small: '.ab-atc-small';
+$large: '.ab-atc-large';
+$superscript: '.ab-atc-superscript';
+$subscript: '.ab-atc-subscript';
+
+@if $ab-atc-span-enable-default-rendering {
+    $content: list.append($ab-atc-span-content, $content);
+    $pre-content: list.append($ab-atc-span-pre-content, $pre-content);
+    $bold: list.append($ab-atc-span-bold, $bold);
+    $bolder: list.append($ab-atc-span-bolder, $bolder);
+    $italic: list.append($ab-atc-span-italic, $italic);
+    $strike-through: list.append($ab-atc-span-strike-through, $strike-through);
+    $underline: list.append($ab-atc-span-underline, $underline);
+    $highlight: list.append($ab-atc-span-highlight, $highlight);
+    $cite: list.append($ab-atc-span-cite, $cite);
+    $small: list.append($ab-atc-span-small, $small);
+    $large: list.append($ab-atc-span-large, $large);
+    $superscript: list.append($ab-atc-span-superscript, $superscript);
+    $subscript: list.append($ab-atc-span-subscript, $subscript);
+}
+
+.ab-atc {
+    #{$content} {
+        letter-spacing: .2px;
+        line-height: 1.2em;
+        font-size: 1em;
+        font-family: $ab-atc-span-sans-serif;
+    }
+
+    #{$pre-content} {
+        font-size: 0.9em;
+        font-family: $ab-atc-span-monospace;
+        margin: 0;
+    }
+
+    #{$bold} {
+        font-weight: bold;
+    }
+
+    #{$bolder} {
+        font-weight: bolder;
+    }
+
+    #{$italic} {
+        font-style: italic;
+    }
+
+    #{$strike-through} {
+        text-decoration: 0.1em line-through;
+    }
+
+    #{$underline} {
+        text-decoration: 0.1em underline;
+    }
+
+    #{$highlight} {
+        background-color: $ab-atc-span-highlight-background-color;
+        padding: 0 0.1em;
+    }
+
+    #{$cite} {
+        font-style: italic;
+        font-family: $ab-atc-span-serif;
+    }
+
+    #{$small} {
+        font-size: 0.8em;
+    }
+
+    #{$large} {
+        font-size: 1.15em;
+    }
+
+    #{$superscript} {
+        vertical-align: super;
+        font-size: 0.6em;
+    }
+
+    #{$subscript} {
+        vertical-align: sub;
+        font-size: 0.6em;
+    }
+}
+
+.ab-atc {
+    a {
+        text-decoration: none;
+        &:link     { color: $ab-atc-span-anchor-link-color;     }
+        &:visited  { color: $ab-atc-span-anchor-visited-color;  }
+        &:hover    { color: $ab-atc-span-anchor-hover-color;    }
+        &:active   { color: $ab-atc-span-anchor-active-color;   }
+    }
+
+    abbr {
+        text-decoration: none;
+        &[title] {
+            text-decoration: 0.1em underline dotted;
+        }
+    }
+
+    var {
+        font-family: $ab-atc-span-serif;
+        font-style: italic;
+    }
+
+    kbd {
+        position: relative;
+        font-family: $ab-atc-span-monospace;
+        font-size: 0.7em;
+        padding: .2em .1em .1em .1em;
+        margin: 0 .15em;
+        border-width: .1em .1em .2em .1em;
+        border-style: solid;
+        border-radius: .2em;
+        top: 0;
+
+        &:active {
+            top: .1em;
+            border-width: .1em .1em .1em .1em;
+        }
+    }
+}
+
+.ab-atc {
+    bdi.ab-atc-yyr {
+        > ins {
+            text-decoration: none;
+            display: none;
+        }
+        > del {
+            text-decoration: none;
+        }
+
+        &:hover > {
+            ins {
+                display: inline;
+            }
+            del {
+                text-decoration: .1em line-through;;
+            }
+        }
+    }
+}

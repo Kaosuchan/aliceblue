@@ -1,0 +1,41 @@
+$ab-atc-sans-serif: Helvetica, Arial, sans-serif !default;
+$ab-atc-serif: 'Times New Roman', times, serif !default;
+$ab-atc-monospace: courier, monospace !default;
+
+@use "atc/block" 
+// hide
+//     $content,
+//     $pre-content,
+//     $header,
+//     $display,
+//     $figure,
+//     $list,
+//     $quote
+with (
+    $ab-atc-block-sans-serif: $ab-atc-sans-serif,
+    $ab-atc-block-serif: $ab-atc-serif,
+    $ab-atc-block-monospace: $ab-atc-monospace
+);
+
+
+
+@use "atc/span"
+// hide
+    // $content,
+    // $pre-content,
+    // $bold,
+    // $bolder,
+    // $italic,
+    // $strike-through,
+    // $underline,
+    // $highlight,
+    // $cite,
+    // $small,
+    // $large
+with (
+    $ab-atc-span-sans-serif: $ab-atc-sans-serif,
+    $ab-atc-span-serif: $ab-atc-serif,
+    $ab-atc-span-monospace: $ab-atc-monospace
+);
+
+/* Hello World */

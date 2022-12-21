@@ -1,0 +1,26 @@
+/** suggested */
+
+$ab-scff-columns-gap: 0 !default;
+$ab-scff-columns-basis: 250px !default;
+
+.ab-scff-columns {
+    display: flex;
+    /** reference */
+    align-items: stretch;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-direction: left;
+    gap: $ab-scff-columns-gap;
+    > * {
+        order: 0;
+        flex: 1 $ab-scff-columns-basis;
+        /** reference */
+        justify-content: center;
+    }
+    > *.left {
+        order: -1;
+    }
+    > *.right {
+        order: 1;
+    }
+}

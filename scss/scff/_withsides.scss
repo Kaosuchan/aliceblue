@@ -1,0 +1,47 @@
+/** reference */
+
+$ab-scff-withsides-tipping-point: 950px;
+
+.ab-scff-lmrs {
+    > .sidebar {
+        order: 1;
+    }
+}
+
+.ab-scff-lsrm {
+    > .sidebar {
+        order: -1;
+    }
+}
+
+.ab-scff-withsides,
+.ab-scff-lmrs,
+.ab-scff-lsrm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    > .main {
+        order: 0;
+        flex: 50% 3; 
+    }
+    > .sidebar {
+        flex: 20% 1;
+    }
+    > .left {
+        order: -1;
+    }
+    > .right {
+        order: 1;
+    }
+    @media screen and (max-width: $ab-scff-withsides-tipping-point) {
+        > .main, > .sidebar {
+            flex: 0 100%;
+        }
+        > .top {
+            order: -1;
+        }
+        > .bottom {
+            order: 1;
+        }
+    }
+}

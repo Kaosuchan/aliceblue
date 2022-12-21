@@ -1,0 +1,33 @@
+/** required */
+.ab-scff-burger {
+    display: block;
+}
+
+.ab-scff-ilburger {
+    display: inline-block;
+}
+
+.ab-scff-burger > *,
+.ab-scff-ilburger > * {
+    position: absolute;
+}
+
+/** reference */
+.ab-scff-burger,
+.ab-scff-ilburger {
+    > .top {
+        z-index: 2;
+    }
+    > .above {
+        z-index: 1;
+    }
+    > .middle {
+        z-index: 0;
+    }
+    > .below {
+        z-index: -1;
+    }
+    > .bottom {
+        z-index: -2;
+    }
+}

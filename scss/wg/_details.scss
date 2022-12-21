@@ -1,0 +1,11 @@
+/** reference */
+
+$ab-wg-details-background-color: rgb(220, 209, 209);
+
+details {
+    padding: .3em .5em;
+    background-color: $ab-wg-details-background-color;
+    summary {
+        font-weight: bold;
+    }
+}

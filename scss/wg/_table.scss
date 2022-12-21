@@ -1,0 +1,47 @@
+/** reference */
+
+@use 'sass:list';
+
+$ab-wg-sans-serif: Helvetica, Arial, sans-serif !default;
+$ab-wg-serif: 'Times New Roman', times, serif !default;
+
+$ab-wg-table-enable-default: true !default;
+$ab-wg-table-background-color: white, silver;
+
+$table: '.ab-wg-table';
+
+@if $ab-wg-table-enable-default {
+    $table: '.ab-wg-table', table;
+}
+
+#{$table} {
+    display: table;
+    border-collapse: collapse;
+    border: 2px solid;
+    overflow: scroll;
+    table-layout: fixed;
+    th, td {
+        border: 1px solid;
+        padding: .3em 1em;
+
+        &:nth-child(odd) {
+            background-color: list.nth($ab-wg-table-background-color, 1);
+        }
+
+        &:nth-child(even) {
+            background-color: list.nth($ab-wg-table-background-color, 2);
+        }
+    }
+
+    th {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    caption {
+        font-size: 2em;
+        font-style: bold;
+        margin: .5em;
+        font-family: $ab-wg-sans-serif;
+    }
+}
